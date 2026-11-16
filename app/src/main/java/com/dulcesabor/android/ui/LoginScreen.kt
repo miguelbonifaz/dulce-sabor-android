@@ -1,17 +1,12 @@
 package com.dulcesabor.android.ui
 
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.GenericShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.foundation.background
@@ -76,7 +71,6 @@ fun LoginScreen(
     state: LoginUiState,
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
-    onDemoAccount: () -> Unit,
     onSignIn: () -> Unit,
 ) {
     var passwordVisible by rememberSaveable { mutableStateOf(false) }
@@ -125,26 +119,10 @@ fun LoginScreen(
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .shadow(elevation = 6.dp, shape = ComandaShape, ambientColor = Pasteleria.Chocolate, spotColor = Pasteleria.Chocolate)
+                        .border(1.dp, Pasteleria.Hilo, ComandaShape)
                         .background(MaterialTheme.colorScheme.surface, ComandaShape)
-                        .padding(start = 20.dp, end = 20.dp, top = 28.dp, bottom = 20.dp),
+                        .padding(start = 20.dp, end = 20.dp, top = 24.dp, bottom = 20.dp),
                 ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                    ) {
-                        Text(
-                            stringResource(R.string.order_label).uppercase(),
-                            style = MaterialTheme.typography.labelSmall,
-                            color = Pasteleria.Harina,
-                        )
-                        DemoStamp()
-                    }
-                    Spacer(Modifier.height(12.dp))
-                    DashedRule()
-                    Spacer(Modifier.height(20.dp))
-
                     val fieldColors = OutlinedTextFieldDefaults.colors(
                         unfocusedContainerColor = MaterialTheme.colorScheme.surfaceVariant,
                         focusedContainerColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -235,17 +213,6 @@ fun LoginScreen(
                 }
 
                 Spacer(Modifier.height(16.dp))
-                TextButton(
-                    onClick = onDemoAccount,
-                    enabled = !state.isLoading,
-                    modifier = Modifier.align(Alignment.CenterHorizontally),
-                ) {
-                    Text(
-                        stringResource(R.string.demo_account),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.primary,
-                    )
-                }
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally),
@@ -300,7 +267,7 @@ private fun LogoLabel() {
     Box(
         modifier = Modifier
             .size(88.dp)
-            .shadow(3.dp, CircleShape, ambientColor = Pasteleria.Chocolate, spotColor = Pasteleria.Chocolate)
+            .border(1.dp, Pasteleria.Hilo, CircleShape)
             .background(Color.White, CircleShape)
             .padding(10.dp),
         contentAlignment = Alignment.Center,
@@ -313,35 +280,8 @@ private fun LogoLabel() {
     }
 }
 
-@Composable
-private fun DemoStamp() {
-    Text(
-        stringResource(R.string.demo_mode).uppercase(),
-        style = MaterialTheme.typography.labelSmall,
-        color = MaterialTheme.colorScheme.primary,
-        modifier = Modifier
-            .rotate(-4f)
-            .border(1.5.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.6f), RoundedCornerShape(4.dp))
-            .padding(horizontal = 8.dp, vertical = 4.dp),
-    )
-}
-
-@Composable
-private fun DashedRule() {
-    val color = Pasteleria.Hilo
-    Canvas(Modifier.fillMaxWidth().height(1.dp)) {
-        drawLine(
-            color = color,
-            start = Offset(0f, 0f),
-            end = Offset(size.width, 0f),
-            strokeWidth = 1.dp.toPx() * 1.5f,
-            pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 8f)),
-        )
-    }
-}
-
 @Preview(showBackground = true, widthDp = 390, heightDp = 844)
 @Composable
 private fun LoginPreview() {
-    DulceSaborTheme { LoginScreen(LoginUiState(), {}, {}, {}, {}) }
+    DulceSaborTheme { LoginScreen(LoginUiState(), {}, {}, {}) }
 }

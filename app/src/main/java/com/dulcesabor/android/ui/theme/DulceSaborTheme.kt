@@ -15,24 +15,24 @@ import androidx.compose.ui.unit.sp
 
 /** Colores del taller: papel de horno, crema batida, chocolate y los acentos del logo. */
 object Pasteleria {
-    val PapelHorno = Color(0xFFF5EDE3)
-    val CremaBatida = Color(0xFFFFFCF8)
-    val Masa = Color(0xFFF3EAE0)
+    val PapelHorno = Color(0xFFFFFFFF)
+    val CremaBatida = Color(0xFFFFFCFA)
+    val Masa = Color(0xFFF8F3EF)
     val Chocolate = Color(0xFF3A2620)
     val Cacao = Color(0xFF7A6259)
     val Harina = Color(0xFFA8948A)
-    val Frambuesa = Color(0xFFC21D6B)
-    val FrambuesaSuave = Color(0xFFFBE4EE)
-    val Celeste = Color(0xFF0A73A8)
-    val Hilo = Color(0x1F3A2620)
+    val Frambuesa = Color(0xFFF4C6D7)
+    val FrambuesaSuave = Color(0xFFFCEEF3)
+    val Celeste = Color(0xFF4F8DB0)
+    val Hilo = Color(0x143A2620)
     val Error = Color(0xFFB3261E)
 }
 
 private val colors = lightColorScheme(
     primary = Pasteleria.Frambuesa,
-    onPrimary = Color.White,
+    onPrimary = Pasteleria.Chocolate,
     primaryContainer = Pasteleria.FrambuesaSuave,
-    onPrimaryContainer = Pasteleria.Frambuesa,
+    onPrimaryContainer = Pasteleria.Chocolate,
     secondary = Pasteleria.Celeste,
     onSecondary = Color.White,
     background = Pasteleria.PapelHorno,
