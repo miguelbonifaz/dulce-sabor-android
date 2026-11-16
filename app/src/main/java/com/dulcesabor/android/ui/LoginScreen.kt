@@ -100,7 +100,7 @@ fun LoginScreen(
             verticalArrangement = Arrangement.SpaceBetween,
         ) {
             Column {
-                LogoLabel()
+                LogoLabel(Modifier.align(Alignment.CenterHorizontally))
                 Spacer(Modifier.height(24.dp))
                 Text(
                     stringResource(R.string.login_title),
@@ -263,9 +263,9 @@ private val ComandaShape = GenericShape { size, _ ->
 }
 
 @Composable
-private fun LogoLabel() {
+private fun LogoLabel(modifier: Modifier = Modifier) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .size(88.dp)
             .border(1.dp, Pasteleria.Hilo, CircleShape)
             .background(Color.White, CircleShape)
