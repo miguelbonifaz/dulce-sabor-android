@@ -3,7 +3,8 @@
     <string name="app_name">Dulce Sabor</string>
     <string name="login_title">Tu taller,\na un toque.</string>
     <string name="login_subtitle">Ingresa para gestionar tus pedidos y conversaciones.</string>
-    <string name="demo_mode">Modo demostración</string>
+    <string name="order_label">Comanda del día</string>
+    <string name="demo_mode">Demo</string>
     <string name="email_label">Correo electrónico</string>
     <string name="email_placeholder">nombre@dulcesabor.com</string>
     <string name="password_label">Contraseña</string>
