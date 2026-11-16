@@ -9,6 +9,7 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
+import androidx.compose.ui.test.performTextInput
 import com.dulcesabor.android.MainActivity
 import org.junit.Rule
 import org.junit.Test
@@ -40,7 +41,8 @@ class LoginScreenTest {
     }
 
     @Test fun demoLoginAndSignOutWork() {
-        compose.onNodeWithText("Usar cuenta de prueba").performScrollTo().performClick()
+        compose.onNodeWithText("Correo electrónico").performTextInput("equipo@dulcesabor.demo")
+        compose.onNodeWithText("Contraseña").performTextInput("DulceSabor2026")
         compose.onNodeWithContentDescription("Mostrar contraseña").performClick()
         compose.onNodeWithText("DulceSabor2026").assertIsDisplayed()
         compose.onNodeWithText("Ingresar").performScrollTo().performClick()
@@ -61,7 +63,6 @@ class LoginScreenTest {
     @Test
     @Config(sdk = [35], qualifiers = "w320dp-h568dp-xhdpi")
     fun compactScreenCanScrollToSignIn() {
-        compose.onNodeWithText("Usar cuenta de prueba").performScrollTo().performClick()
         compose.onNodeWithText("Ingresar").performScrollTo().assertIsDisplayed()
     }
 }

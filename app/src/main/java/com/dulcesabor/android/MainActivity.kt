@@ -31,7 +31,6 @@ class MainActivity : ComponentActivity() {
                         state = state,
                         onEmailChange = viewModel::updateEmail,
                         onPasswordChange = viewModel::updatePassword,
-                        onDemoAccount = viewModel::useDemoAccount,
                         onSignIn = viewModel::signIn,
                     )
                 } else {

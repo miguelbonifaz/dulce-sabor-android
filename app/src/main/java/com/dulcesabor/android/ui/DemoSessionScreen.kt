@@ -31,7 +31,6 @@ fun DemoSessionScreen(user: StaffUser, onSignOut: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically),
         ) {
             Image(painterResource(R.drawable.dulce_sabor_logo), stringResource(R.string.app_name), Modifier.size(128.dp))
-            Text(stringResource(R.string.demo_mode), color = MaterialTheme.colorScheme.primary)
             Text(stringResource(R.string.welcome), style = MaterialTheme.typography.headlineSmall)
             Text(user.email)
             Text(stringResource(R.string.demo_session_description), style = MaterialTheme.typography.bodyLarge)
